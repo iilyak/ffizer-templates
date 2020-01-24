@@ -1,0 +1,32 @@
+# README
+
+
+The {{plugin_name}} ...
+
+# Demo
+
+* You can see a [demo here](https://{{github_org}}.github.io/tiddlywiki-{{plugin_name}}/)
+* Direct [link to plugin](https://{{github_org}}.github.io/tiddlywiki-{{plugin_name}}/#%24%3A%2Fplugins%2F{{github_org}}%2F{{plugin_name}})
+
+# How to build
+
+This was tested only under Linux and might not work on Windows system.
+
+```
+make clean 
+TIDDLYWIKI_PATH=~/dev/tiddlywiki # update the path to point to correct location
+make build
+cd output/demo 
+caddy file-server
+```
+
+## Deploying to github pages
+
+The deployment to gh-pages should happen automaticly on every PR merge
+
+# Github Actions
+
+Unfortunatelly due to [github bug/feature](https://github.community/t5/GitHub-Actions/Github-action-not-triggering-gh-pages-upon-push/td-p/26869/highlight/true/page/2)
+we cannot use `GITHUB_TOKEN` and have to configure ssh access to the repo. The process is documented [here](https://github.com/peaceiris/actions-gh-pages#1-add-ssh-deploy-key).
+I hope the issue would be fixed and we can revert to fully automatic approach.
+

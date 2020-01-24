@@ -1,0 +1,26 @@
+{
+    "description": "Demo edition of {{plugin_name}} plugin for Tiddlywiki",
+    "plugins": [
+        "{{github_org}}/{{plugin_name}}",
+        "iilyak/splitweb"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "build": {
+        "index": [
+            "--render", "$:/core/save/all",
+            "index.html", "text/plain"
+        ],
+        "splitweb": [
+            "--savewikifolder", "output/demo",
+            "--tiddlers.json", "output/demo",
+            "--render", "$:/core/save/all",
+                "demo/index.html", "text/plain"
+        ]
+    },
+    "languages": [
+        "ru-RU"
+    ]
+}

@@ -1,0 +1,28 @@
+author: @{{github_org}}
+title: $:/plugins/{{github_org}}/{{plugin_name}}/i18n/en-GB/readme
+type: text/vnd.tiddlywiki
+
+
+! README
+
+
+The {{plugin_name}} plugin enables ...
+
+! How to build
+
+This was tested only under Linux and might not work on Windows system.
+
+```
+make clean 
+TIDDLYWIKI_PATH=~/dev/tiddlywiki # update the path to point to correct location
+make build
+cd output/demo 
+caddy file-server
+```
+
+! Hosting on github pages
+
+By default github uses jerkill preprocessing on gh-pages. You have to disable it
+by creating empty `.nojekyll` file at the root of the web site.
+Otherwise the files which name starts with `_` (which is `/` in tiddler name) 
+wouldn't be displayed.

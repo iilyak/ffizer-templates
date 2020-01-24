@@ -1,0 +1,21 @@
+variables:
+  - name: plugin_name
+    ask: Name of the plugin
+  - name: email
+    default_value: <iilyak[at]apache.org>
+    ask: Email
+  - name: github_org
+    default_value: iilyak
+    ask: Github organization or user name
+  - name: copyright_name
+    ask: Your name to use in copyright section of the license
+    default_value: 'ILYA Khlopotov' # FIXME : we need to find a way to overide
+  - name: repo_init
+    ask: Do you want to initialize git repository
+    default_value: "true"
+    select_in_values:
+      - "true"
+      - "false"
+ignores:
+  - .git # exclude .git of the template host
+  - README.md

@@ -1,0 +1,30 @@
+author: @{{github_org}}
+title: $:/plugins/{{github_org}}/{{plugin_name}}/i18n/ru-RU/readme
+type: text/vnd.tiddlywiki
+created: 20191009144004451
+modified: 20191011145435763
+
+
+! Инструкция
+
+{{plugin_name}} плагин позволяет ...
+
+! Сборка
+
+Команды тестировались на Linux и не будут работать под Windows
+
+```
+make clean 
+TIDDLYWIKI_PATH=~/dev/tiddlywiki # исправьте путь
+make build
+cd output/demo 
+caddy file-server
+
+```
+
+! Размещение на github страницах
+
+По умолчанию, github использует jerkill обработку размещенных файлов. 
+Вам необходимо её отключить. Просто создайте пустой  `.nojekyll` файл.
+В противном случае файлы имя которых начинаеется на `_` 
+(что соответствует `/` в имени тиддлера) не будут отображаться.
