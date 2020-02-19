@@ -1,6 +1,8 @@
 #!/bin/bash
 {{ #if (str_to_json(repo_init)) ~}}
 git init
+git add .gitignore
+git commit -m "initial version"
 git worktree add --track -b gh-pages site origin/gh-pages
 echo creating deployment key
 ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
