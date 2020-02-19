@@ -19,7 +19,7 @@ serve: build check-env
 
 .PHONY: build
 # target: build - compile site content
-build: check-env
+build: check-env deps
 	@node $(TW_TOOL) editions/demo --verbose \
 		--output `pwd`/output --build splitweb
 
@@ -45,3 +45,10 @@ endif
 
 site:
 	@git worktree add --track -b gh-pages $@ origin/gh-pages
+
+.PHONY: deps
+# target: deps - download dependencies
+deps: plugins/iilyak/splitweb
+
+plugins/iilyak/splitweb:
+	@git clone https://github.com/iilyak/tiddlywiki-splitweb.git $@

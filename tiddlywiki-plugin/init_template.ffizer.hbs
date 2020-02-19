@@ -1,6 +1,8 @@
 #!/bin/bash
 {{ #if (str_to_json(repo_init)) ~}}
 git init
+git add .gitignore
+git commit -m "initial version"
 git worktree add --track -b gh-pages site origin/gh-pages
 echo creating deployment key
 ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
@@ -8,6 +10,6 @@ echo 'now you should have two files `gh-pages.pub` and `gh-pages`'
 echo '==> go to Repository Settings'
 echo '==>  * Go to Deploy Keys and add your public key with the Allow write access'
 echo '==>  * Go to Secrets and add your private key as ACTIONS_DEPLOY_KEY'
-echo '*** Don't forget to remove `gh-pages.pub` and `gh-pages`'
+echo '*** Remove `gh-pages.pub` and `gh-pages`'
 echo 'rm gh-pages.pub gh-pages'
 {{~ /if }}
